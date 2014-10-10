@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    script(type='text/javascript').
+        $(function() {
+            $(".add-tastes-btn").click(function() {;
+                var src = $(this).parent().parent().children().first().attr("src");
+                var venueLink = $(this).parent().parent().children().first().next().clone();
+                $("#modal-image").attr("src",src);
+                $(".modal-title").html(venueLink);
+            });
+            var options = {
+                "backdrop" : "static",
+                "show": false
+            }
+            $("#photo-modal").modal(options);
+
+            $(".loginButton").click(function(){
+                window.location.href = "/login";
+            });
+
+
+        });
+
+  body
+    block content

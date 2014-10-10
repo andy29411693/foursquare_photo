@@ -1,0 +1,32 @@
+
+extends layout
+
+block content
+  h1=title
+  div#photo-modal.modal.fade.bs-example-modal-lg(tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+    div.modal-dialog.modal-lg
+        div.modal-content
+            div.modal-header
+                h4.modal-title= "User Photo"
+
+            div.modal-body
+                img#modal-image
+
+            div.modal-footer
+
+  div#wrapper
+    div#columns
+        each photo in photos
+            div.pin
+                img(src="#{photo.link}")
+                p
+                    a(href="#{photo.foursquareLink}")= photo.name
+                p
+                    button.add-tastes-btn.photo-btn.btn-sm.btn-info.btn(type="button"
+                        data-toggle="modal"
+                        data-target="#photo-modal"
+                    )= "Add Tastes"
+
+                    button.add-tastes-btn.photo-btn.btn-sm.btn-info.btn(type="button")= "Share"
+
+
